@@ -1,0 +1,8 @@
+docker run -d --name="home-assistant" \
+    -e "TZ=America/Los_Angeles" \
+    -v /home/vince/ha/config:/config \
+    -p 8123:8123 \
+    --device=/dev/ttyACM0  \
+    homeassistant/home-assistant:latest
+    
+#####homeassistant/home-assistant:stable 

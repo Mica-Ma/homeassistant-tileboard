@@ -1,0 +1,57 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+#homeassistant:
+  #customize: !include customize.yaml
+
+# no logins from the LAN
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+      - 192.168.1.0/24
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# for slate theme
+frontend:
+    themes: !include_dir_merge_named themes
+
+zwave:
+    usb_path: /dev/ttyACM0
+    device_config: !include zwave_device_config.yaml
+
+sensor:
+    - platform: mqtt
+      name: "outTemp"
+      state_topic: "vp2/loop"
+      unit_of_measurement: 'F'
+      value_template: "{{ value_json.outTemp }}"
+    - platform: mqtt
+      name: "dayRain"
+      state_topic: "vp2/loop"
+      unit_of_measurement: 'in'
+      value_template: "{{ value_json.dayRain }}"
+    - platform: mqtt
+      name: "wind"
+      state_topic: "vp2/loop"
+      unit_of_measurement: 'mph'
+      value_template: "{{ value_json.windGust }}"
+
+
+#lovelace:
+  #dashboards:
+    #bla:
+      #mode: yaml
+      #filename: bla.yaml
+      #sidebar:  # Optional
+        #title: Make it rain
+        #icon: mdi:cash-100
+

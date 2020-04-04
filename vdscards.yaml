@@ -1,0 +1,53 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    panel: false
+    badges: []
+    cards:
+      - entities:
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_2
+            name: Front Door
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor
+            name: Slider
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_3
+            name: Laundry Door
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_4
+            name: Kitchen
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_5
+            name: FR Left
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_6
+            name: FR Mid
+          - entity: binary_sensor.ecolink_door_window_sensor_sensor_7
+            name: FR Right
+        show_header_toggle: false
+        title: Sensors
+        type: entities
+      - entities:
+          - entity: light.corner
+            name: LR Corner
+          - entity: light.hue_lightstrip
+            name: FR Lightstrip
+          - entity: light.big_lamp
+            name: MBR Corner
+          - entity: light.desk
+            name: Office Desk
+          - entity: light.overhead
+            name: Baseball Room
+        show_header_toggle: false
+        title: Lights
+        type: entities
+      - type: entities
+        entities:
+          - entity: sensor.outtemp
+            name: Temp
+          - entity: sensor.dayrain
+            name: Rain
+          - entity: sensor.wind
+            name: Wind
+        title: Weather
+      - entity: sensor.outtemp
+        name: OutsideTemp
+        type: sensor
+        unit: degF
+
