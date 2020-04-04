@@ -19,6 +19,6 @@ To test:
 
 Tiles change color and icons based on state:
 
-* example [home sreen](home-screen.png) with a door open
+* example [home screen](home-screen.png) with a door open
 * press the red tile to get the [sub-screen](sub-screen.png) with 'which' door is open
 
